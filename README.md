@@ -1,5 +1,5 @@
 # Shrug Man
-A simple tool to copy the shrug emoji ¯\_(ツ)_/¯ to your clipboard.
+A simple tool to copy the shrug emoji ¯\\\_(ツ)\_/¯ to your clipboard.
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 
