@@ -58,7 +58,7 @@ For more information on or troubleshooting .NET Aspire, see the [Aspire document
 To clone the repository, run the following command in your terminal:
 
 ```pwsh
-git clone https://github.com/victorfrye/microsoftgraveyard.git
+git clone https://github.com/victorfrye/shrugman.git
 ```
 
 ### Run the app
@@ -77,7 +77,7 @@ dotnet run --project ./src/AppHost/AppHost.csproj
 
 ## Code of Conduct
 
-Microsoft Graveyard has adopted the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/), and we expect project participants to adhere to it. Please read [the full text](/.github/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+Shrug Man has adopted the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/), and we expect project participants to adhere to it. Please read [the full text](/.github/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ## License
 
