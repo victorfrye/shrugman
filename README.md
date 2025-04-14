@@ -5,7 +5,7 @@ A simple tool to copy the shrug emoji ¯\\\_(ツ)\_/¯ to your clipboard.
 
 ## Overview
 
-Shrug Man is an open-source static web application that allows you to easily copy the shrug emoji ¯\_(ツ)_/¯ to your clipboard. It is designed to be simple and lightweight, making it easy to use and deploy. The mission of this project is to:
+Shrug Man is an open-source static web application that allows you to easily copy the shrug emoji ¯\\\_(ツ)\_/¯ to your clipboard. It is designed to be simple and lightweight, making it easy to use and deploy. The mission of this project is to:
 
 🤷‍♂️ Be fun
 
