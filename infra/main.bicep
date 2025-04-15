@@ -5,6 +5,7 @@ param appRepo string
 
 param googleVerificationCode string
 param bingVerificationCode string
+param blueskyVerificationCode string
 
 param location string = resourceGroup().location
 
@@ -151,5 +152,20 @@ resource dnsBingVerification 'Microsoft.Network/dnszones/CNAME@2023-07-01-previe
     CNAMERecord: {
       cname: 'verify.bing.com'
     }
+  }
+}
+
+resource dnsBlueskyVerification 'Microsoft.Network/dnsZones/TXT@2023-07-01-preview' = {
+  parent: dnsZone
+  name: '_atproto'
+  properties: {
+    TTL: 3600
+    TXTRecords: [
+      {
+        value: [
+          'did=${blueskyVerificationCode}'
+        ]
+      }
+    ]
   }
 }
