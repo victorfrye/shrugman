@@ -63,6 +63,18 @@ const Socials = () => {
           />
         ),
       },
+      {
+        href: 'https://bsky.app/profile/shrugman.com',
+        styles: styles.blue,
+        image: (
+          <Image
+            src={isDark ? '/images/bluesky.svg' : '/images/bluesky_dark.svg'}
+            alt="Bluesky"
+            height={20}
+            width={20}
+          />
+        ),
+      },
     ];
   }, [isDark, styles]);
 
