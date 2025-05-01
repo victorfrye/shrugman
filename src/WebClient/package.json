@@ -11,7 +11,7 @@
     "lint:check": "next lint"
   },
   "dependencies": {
-    "@fluentui/react-components": "^9.61.6",
+    "@fluentui/react-components": "^9.63.0",
     "@fluentui/react-icons": "^2.0.294",
     "@griffel/react": "^1.5.29",
     "next": "^15.2.4",
