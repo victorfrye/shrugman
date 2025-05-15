@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-import './globals.css';
 import { Metadata } from 'next';
 
-import { Profile } from '@shrugman/components/layout';
-import { DarkModeProvider, ThemeProvider } from '@shrugman/components/theme';
+import Frame from '@shrugman/frame';
+import '@shrugman/globals.css';
+import { DarkModeProvider, ThemeProvider } from '@shrugman/theme';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shrugman.com'),
@@ -51,7 +51,7 @@ export const RootLayout = ({
         <div id="root">
           <DarkModeProvider>
             <ThemeProvider>
-              <Profile>{children}</Profile>
+              <Frame>{children}</Frame>
             </ThemeProvider>
           </DarkModeProvider>
         </div>

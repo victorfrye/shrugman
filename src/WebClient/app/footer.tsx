@@ -11,8 +11,8 @@ import {
   tokens,
 } from '@fluentui/react-components';
 
-import Socials from '@shrugman/components/layout/Socials';
-import { useDarkMode } from '@shrugman/components/theme';
+import Socials from '@shrugman/socials';
+import { useDarkMode } from '@shrugman/theme';
 
 const useStyles = makeStyles({
   footer: {
@@ -46,7 +46,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Footer = () => {
+export default function Footer() {
   const styles = useStyles();
   const _today: Date = new Date();
 
@@ -74,6 +74,4 @@ const Footer = () => {
       </Caption1>
     </CardFooter>
   );
-};
-
-export default Footer;
+}

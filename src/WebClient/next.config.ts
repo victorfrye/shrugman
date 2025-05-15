@@ -1,8 +1,8 @@
-import { withGriffelCSSExtraction } from "@griffel/next-extraction-plugin";
+import { withGriffelCSSExtraction } from '@griffel/next-extraction-plugin';
+import { NextConfig } from 'next';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = withGriffelCSSExtraction()({
-  output: "export",
+const nextConfig: NextConfig = withGriffelCSSExtraction()({
+  output: 'export',
   turbopack: {},
   webpack: (config) => {
     config.module.rules.unshift(
@@ -11,7 +11,7 @@ const nextConfig = withGriffelCSSExtraction()({
         exclude: /node_modules/,
         use: [
           {
-            loader: "@griffel/webpack-loader",
+            loader: '@griffel/webpack-loader',
           },
         ],
       },
@@ -20,10 +20,10 @@ const nextConfig = withGriffelCSSExtraction()({
         exclude: /node_modules/,
         use: [
           {
-            loader: "@griffel/webpack-loader",
+            loader: '@griffel/webpack-loader',
             options: {
               babelOptions: {
-                presets: ["next/babel"],
+                presets: ['next/babel'],
               },
             },
           },

@@ -39,7 +39,12 @@ const HomePage = () => {
       <Display as="p" block className={styles.text}>
         {shrugMan}
       </Display>
-      <Button as="button" icon={<ClipboardRegular />} onClick={setClipboard}>
+      <Button
+        as="button"
+        icon={<ClipboardRegular />}
+        appearance="primary"
+        onClick={setClipboard}
+      >
         Click to Copy
       </Button>
     </main>
