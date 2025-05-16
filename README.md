@@ -4,7 +4,7 @@ A simple tool to copy the shrug emoji ¯\\\_(ツ)\_/¯ to your clipboard.
 
 [![Azure Static Web Apps CI/CD](https://github.com/victorfrye/shrugman/actions/workflows/azure-swa.yml/badge.svg)](https://github.com/victorfrye/shrugman/actions/workflows/azure-swa.yml)
 [![Bicep CI/CD](https://github.com/victorfrye/shrugman/actions/workflows/bicep.yml/badge.svg)](https://github.com/victorfrye/shrugman/actions/workflows/bicep.yml)
-[![CodeQL](https://github.com/victorfrye/shrugman/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/victorfrye/shrugman/actions/workflows/github-code-scanning/codeql)
+[![CodeQL](https://github.com/victorfrye/shrugman/actions/workflows/codeql.yml/badge.svg)](https://github.com/victorfrye/shrugman/actions/workflows/codeql.yml)
 [![GitHub Issues](https://img.shields.io/github/issues/victorfrye/shrugman)](https://github.com/victorfrye/shrugman/issues)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](/.github/CODE_OF_CONDUCT.md)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
