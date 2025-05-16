@@ -1,5 +1,5 @@
 {
-  "name": "Microsoft Graveyard",
+  "name": "Shrug Man",
   "image": "mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm",
   // https://containers.dev/features
   "features": {
