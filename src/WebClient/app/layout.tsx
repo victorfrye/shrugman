@@ -40,11 +40,11 @@ export const metadata: Metadata = {
   },
 };
 
-export const RootLayout = ({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: ReactNode;
-}>) => {
+}
+
+export const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
       <body>
