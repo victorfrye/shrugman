@@ -1,9 +1,10 @@
 'use client';
 
-import { useCallback } from 'react';
+import { KeyboardEvent, useCallback } from 'react';
 
 import {
   Button,
+  Card,
   Display,
   makeStyles,
   tokens,
@@ -19,6 +20,10 @@ const useStyles = makeStyles({
     padding: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalL}`,
     margin: 'auto',
   },
+  card: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   text: {
     margin: `${tokens.spacingVerticalMNudge}`,
   },
@@ -26,7 +31,7 @@ const useStyles = makeStyles({
 
 const shrugMan = '¯\\_(ツ)_/¯';
 
-const HomePage = () => {
+export default function HomePage() {
   const styles = useStyles();
 
   const setClipboard = useCallback(
@@ -34,21 +39,39 @@ const HomePage = () => {
     []
   );
 
+  const onCardActionClick = useCallback(() => {
+    setClipboard();
+  }, [setClipboard]);
+
+  const onCardActionKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>): void => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        onCardActionClick();
+      }
+    },
+    [onCardActionClick]
+  );
+
   return (
     <main className={styles.main}>
-      <Display as="p" block className={styles.text}>
-        {shrugMan}
-      </Display>
-      <Button
-        as="button"
-        icon={<ClipboardRegular />}
-        appearance="primary"
-        onClick={setClipboard}
+      <Card
+        onClick={onCardActionClick}
+        onKeyDown={onCardActionKeyDown}
+        appearance="filled-alternative"
+        className={styles.card}
       >
-        Click to Copy
-      </Button>
+        <Display as="p" block className={styles.text}>
+          {shrugMan}
+        </Display>
+        <Button
+          as="button"
+          icon={<ClipboardRegular />}
+          appearance="primary"
+          onClick={setClipboard}
+        >
+          Click to Copy
+        </Button>
+      </Card>
     </main>
   );
-};
-
-export default HomePage;
+}

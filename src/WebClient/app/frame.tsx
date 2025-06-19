@@ -26,11 +26,11 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Frame({
-  children,
-}: Readonly<{
+interface FrameProps {
   children: ReactNode;
-}>) {
+}
+
+export default function Frame({ children }: Readonly<FrameProps>) {
   const styles = useStyles();
 
   return (
