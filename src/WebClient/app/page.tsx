@@ -1,11 +1,15 @@
 'use client';
 
-import { KeyboardEvent, useCallback } from 'react';
+import { KeyboardEvent, useCallback, useState } from 'react';
 
 import {
   Button,
   Card,
   Display,
+  SelectTabEventHandler,
+  Tab,
+  TabList,
+  TabValue,
   makeStyles,
   tokens,
 } from '@fluentui/react-components';
@@ -20,43 +24,76 @@ const useStyles = makeStyles({
     padding: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalL}`,
     margin: 'auto',
   },
+  tabs: {
+    margin: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalNone} ${tokens.spacingVerticalL}`,
+  },
   card: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: `${tokens.spacingVerticalXXXL}`,
   },
   text: {
     margin: `${tokens.spacingVerticalMNudge}`,
+    '@media screen and (max-width: 576px)': {
+      fontSize: tokens.fontSizeHero900,
+      lineHeight: tokens.lineHeightHero900,
+    },
   },
 });
 
-const shrugMan = '¯\\_(ツ)_/¯';
+const asciiShrugMan = '¯\\_(ツ)_/¯';
+const escapedShrugMan = '¯\\\\_(ツ)_/¯';
 
 export default function HomePage() {
   const styles = useStyles();
 
+  const [selectedValue, setSelectedValue] = useState<TabValue>('common');
+
+  const shrugMan = selectedValue === 'common' ? asciiShrugMan : escapedShrugMan;
+
+  const handleTabSelected: SelectTabEventHandler = (_event, data) => {
+    setSelectedValue(data.value);
+  };
+
   const setClipboard = useCallback(
     () => navigator.clipboard.writeText(shrugMan),
-    []
+    [shrugMan]
   );
 
-  const onCardActionClick = useCallback(() => {
+  const handleCardActionClicked = useCallback(() => {
     setClipboard();
   }, [setClipboard]);
 
-  const onCardActionKeyDown = useCallback(
+  const handleCardActionKeyDowned = useCallback(
     (event: KeyboardEvent<HTMLDivElement>): void => {
       if (event.key === 'Enter' || event.key === ' ') {
-        onCardActionClick();
+        handleCardActionClicked();
       }
     },
-    [onCardActionClick]
+    [handleCardActionClicked]
   );
 
   return (
     <main className={styles.main}>
+      <TabList
+        selectedValue={selectedValue}
+        onTabSelect={handleTabSelected}
+        selectTabOnFocus
+        appearance="subtle"
+        size="large"
+        className={styles.tabs}
+      >
+        <Tab id="Common" value="common">
+          Common
+        </Tab>
+        <Tab id="Escaped" value="escaped">
+          Escaped
+        </Tab>
+      </TabList>
+
       <Card
-        onClick={onCardActionClick}
-        onKeyDown={onCardActionKeyDown}
+        onClick={handleCardActionClicked}
+        onKeyDown={handleCardActionKeyDowned}
         appearance="filled-alternative"
         className={styles.card}
       >
