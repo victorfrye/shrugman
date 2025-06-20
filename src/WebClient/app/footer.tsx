@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     display: 'flex',
     '@media screen and (max-width: 576px)': {
       flexDirection: 'column',
+      rowGap: tokens.spacingVerticalS,
     },
     justifyItems: 'center',
     padding: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalXL} ${tokens.spacingVerticalXL}`,
@@ -29,9 +30,8 @@ const useStyles = makeStyles({
     '@media screen and (max-width: 576px)': {
       marginLeft: 'auto',
       marginRight: 'auto',
-      padding: `${tokens.spacingVerticalSNudge} ${tokens.spacingHorizontalL} ${tokens.spacingVerticalNone}`,
+      padding: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalL} ${tokens.spacingVerticalNone}`,
     },
-    padding: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalM}`,
   },
   copyright: {
     marginTop: 'auto',
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     marginLeft: 'auto',
     '@media screen and (max-width: 576px)': {
       marginRight: 'auto',
-      padding: `${tokens.spacingVerticalSNudge} ${tokens.spacingHorizontalL} ${tokens.spacingVerticalNone}`,
+      padding: `${tokens.spacingVerticalMNudge} ${tokens.spacingHorizontalL} ${tokens.spacingVerticalNone}`,
     },
     flexWrap: 'wrap',
     padding: `${tokens.spacingVerticalNone} ${tokens.spacingHorizontalL}`,
