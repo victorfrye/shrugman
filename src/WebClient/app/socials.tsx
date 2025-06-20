@@ -1,6 +1,7 @@
 import { JSX, useCallback } from 'react';
 
 import { Button, Image, makeStyles, tokens } from '@fluentui/react-components';
+import { PersonFilled } from '@fluentui/react-icons';
 
 import { useDarkMode } from '@shrugman/theme';
 
@@ -17,7 +18,10 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: tokens.spacingVerticalSNudge,
+    gap: tokens.spacingVerticalM,
+  },
+  icon: {
+    color: tokens.colorNeutralForeground1,
   },
 });
 
@@ -27,6 +31,10 @@ export default function Socials() {
 
   const getSocials = useCallback((): Social[] => {
     return [
+      {
+        href: 'https://victorfrye.com',
+        image: <PersonFilled className={styles.icon} height={20} width={20} />,
+      },
       {
         href: 'https://github.com/victorfrye/shrugman',
         image: (
@@ -39,7 +47,7 @@ export default function Socials() {
         ),
       },
     ];
-  }, [isDark]);
+  }, [isDark, styles]);
 
   const renderButtons = (): JSX.Element[] => {
     return getSocials().map((social) => (
