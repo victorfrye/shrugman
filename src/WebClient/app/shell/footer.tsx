@@ -94,7 +94,7 @@ export default function Footer() {
           <FooterButtons />
           <Tooltip
             withArrow
-            content={`Toggle ${colorMode} mode`}
+            content={ShellText.footer.toggleColor(colorMode)}
             relationship="label"
           >
             <Button
