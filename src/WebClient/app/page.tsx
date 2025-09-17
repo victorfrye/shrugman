@@ -15,6 +15,8 @@ import {
 } from '@fluentui/react-components';
 import { ClipboardRegular } from '@fluentui/react-icons';
 
+import AppText from '@shrugman/text';
+
 const useStyles = makeStyles({
   main: {
     display: 'flex',
@@ -84,10 +86,10 @@ export default function HomePage() {
         className={styles.tabs}
       >
         <Tab id="Common" value="common">
-          Common
+          {AppText.options.common}
         </Tab>
         <Tab id="Escaped" value="escaped">
-          Escaped
+          {AppText.options.escaped}
         </Tab>
       </TabList>
 
@@ -106,7 +108,7 @@ export default function HomePage() {
           appearance="primary"
           onClick={setClipboard}
         >
-          Click to Copy
+          {AppText.buttons.copy}
         </Button>
       </Card>
     </main>

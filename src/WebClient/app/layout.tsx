@@ -2,9 +2,10 @@ import { ReactNode } from 'react';
 
 import { Metadata } from 'next';
 
-import Frame from '@shrugman/frame';
+import { ClarityTag, Gtag } from '@shrugman/analytics';
 import '@shrugman/globals.css';
-import { DarkModeProvider, ThemeProvider } from '@shrugman/theme';
+import ProviderTree from '@shrugman/provider-tree';
+import { Shell } from '@shrugman/shell';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shrugman.com'),
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     'kaomoji',
     '¯\\_(ツ)_/¯',
   ],
-  icons: ['images/man_shrugging.svg'],
+  icons: ['assets/man_shrugging.svg'],
   authors: {
     name: 'Victor Frye',
     url: 'https://victorfrye.com/',
@@ -45,13 +46,14 @@ interface RootLayoutProps {
 export const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang="en">
+      <Gtag tagId="G-4V2RXRC8ZE" />
+      <ClarityTag projectId="tcanqydbis" />
+
       <body>
         <div id="root">
-          <DarkModeProvider>
-            <ThemeProvider>
-              <Frame>{children}</Frame>
-            </ThemeProvider>
-          </DarkModeProvider>
+          <ProviderTree>
+            <Shell>{children}</Shell>
+          </ProviderTree>
         </div>
       </body>
     </html>

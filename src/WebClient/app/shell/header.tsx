@@ -9,6 +9,8 @@ import {
   tokens,
 } from '@fluentui/react-components';
 
+import ShellText from '@shrugman/shell/text';
+
 const useStyles = makeStyles({
   header: {
     alignItems: 'center',
@@ -32,20 +34,20 @@ export default function Header() {
       image={
         <Image
           as="img"
-          src="/images/man_shrugging.svg"
+          src="/assets/man_shrugging.svg"
           alt="a man shrugging"
           height={72}
           width={72}
         />
       }
       header={
-        <Title1 as="h1" wrap={false} className={styles.title}>
-          Shrug Man
+        <Title1 as="span" wrap={false} className={styles.title}>
+          {ShellText.header.title}
         </Title1>
       }
       description={
         <Subtitle2 as="em" className={styles.tagline}>
-          Shrugging through life, one copy-paste at a time.
+          {ShellText.header.tagline}
         </Subtitle2>
       }
     />

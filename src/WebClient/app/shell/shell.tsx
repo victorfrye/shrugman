@@ -4,11 +4,12 @@ import { ReactNode } from 'react';
 
 import { Card, makeStyles, tokens } from '@fluentui/react-components';
 
-import Footer from '@shrugman/footer';
-import Header from '@shrugman/header';
+import { CookieBanner } from '@shrugman/privacy';
+import Footer from '@shrugman/shell/footer';
+import Header from '@shrugman/shell/header';
 
 const useStyles = makeStyles({
-  frame: {
+  shell: {
     display: 'flex',
     minHeight: 'calc(100vh - (var(--spacingVerticalXXXL) * 2))',
     '@media screen and (max-width: 576px)': {
@@ -26,20 +27,22 @@ const useStyles = makeStyles({
   },
 });
 
-interface FrameProps {
+interface ShellProps {
   children: ReactNode;
 }
 
-export default function Frame({ children }: Readonly<FrameProps>) {
+export default function Shell({ children }: ShellProps) {
   const styles = useStyles();
 
   return (
-    <div className={styles.frame}>
+    <div className={styles.shell}>
       <Card className={styles.card}>
         <Header />
         {children}
         <Footer />
       </Card>
+
+      <CookieBanner />
     </div>
   );
 }
