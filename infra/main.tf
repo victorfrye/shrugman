@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-#   backend "azurerm" {
-#     resource_group_name  = "rg-tfstate"
-#     storage_account_name = "stvftfscus"
-#     container_name       = "shrugman"
-#     key                  = "terraform.tfstate"
-#   }
+  backend "azurerm" {
+    resource_group_name  = "rg-tfstate"
+    storage_account_name = "stvftfscus"
+    container_name       = "shrugman"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
