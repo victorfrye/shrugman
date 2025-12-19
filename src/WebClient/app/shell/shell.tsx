@@ -1,12 +1,11 @@
 'use client';
 
-import { ReactNode } from 'react';
-
 import { Card, makeStyles, tokens } from '@fluentui/react-components';
+import type { ReactNode } from 'react';
 
-import { CookieBanner } from '@shrugman/privacy';
-import Footer from '@shrugman/shell/footer';
-import Header from '@shrugman/shell/header';
+import { CookieBanner } from '@/privacy';
+import Footer from '@/shell/footer';
+import Header from '@/shell/header';
 
 const useStyles = makeStyles({
   shell: {

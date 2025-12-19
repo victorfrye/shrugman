@@ -1,16 +1,16 @@
 'use client';
 
 import {
-  ReactNode,
   createContext,
+  type ReactNode,
   useCallback,
   useEffect,
   useMemo,
 } from 'react';
 
-import { useClarity, useGA } from '@shrugman/analytics';
-import ConsentSettings from '@shrugman/privacy/consent-settings';
-import { readValue, useLocalStorage } from '@shrugman/storage';
+import { useClarity, useGA } from '@/analytics';
+import type ConsentSettings from '@/privacy/consent-settings';
+import { readValue, useLocalStorage } from '@/storage';
 
 let initialized = false;
 
@@ -21,7 +21,6 @@ interface ConsentContextProps {
 
 export const ConsentContext = createContext<ConsentContextProps>({
   consent: readValue<ConsentSettings>('consent'),
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
   onConsentChange: (_settings: ConsentSettings) => {},
 });
 
@@ -29,7 +28,9 @@ interface ConsentProviderProps {
   children: ReactNode;
 }
 
-export default function ConsentProvider({ children }: ConsentProviderProps) {
+export default function ConsentProvider({
+  children,
+}: Readonly<ConsentProviderProps>) {
   const {
     value: consentSettings,
     handleValueChange: handleCookieSettingsChange,
@@ -52,7 +53,7 @@ export default function ConsentProvider({ children }: ConsentProviderProps) {
       handleClarityConsentChange,
       handleCookieSettingsChange,
       handleGAConsentChange,
-    ]
+    ],
   );
 
   useEffect(() => {
@@ -76,7 +77,7 @@ export default function ConsentProvider({ children }: ConsentProviderProps) {
       consent: consentSettings,
       onConsentChange: handleConsentChange,
     }),
-    [consentSettings, handleConsentChange]
+    [consentSettings, handleConsentChange],
   );
 
   return (

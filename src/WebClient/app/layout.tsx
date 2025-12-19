@@ -1,11 +1,10 @@
-import { ReactNode } from 'react';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 
-import { Metadata } from 'next';
-
-import { ClarityTag, Gtag } from '@shrugman/analytics';
-import '@shrugman/globals.css';
-import ProviderTree from '@shrugman/provider-tree';
-import { Shell } from '@shrugman/shell';
+import { ClarityTag, Gtag } from '@/analytics';
+import '@/globals.css';
+import ProviderTree from '@/provider-tree';
+import { Shell } from '@/shell';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shrugman.com'),

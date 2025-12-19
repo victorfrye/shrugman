@@ -1,9 +1,7 @@
-'use client';
+import type { ReactNode } from 'react';
 
-import { ReactNode } from 'react';
-
-import { ConsentProvider } from '@shrugman/privacy';
-import { ColorModeProvider, ThemeProvider } from '@shrugman/theme';
+import { ConsentProvider } from '@/privacy';
+import { ColorModeProvider, ThemeProvider } from '@/theme';
 
 interface ProviderTreeProps {
   children: ReactNode;

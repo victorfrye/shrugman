@@ -1,21 +1,20 @@
 'use client';
 
-import { KeyboardEvent, useCallback, useState } from 'react';
-
 import {
   Button,
   Card,
   Display,
-  SelectTabEventHandler,
+  makeStyles,
+  type SelectTabEventHandler,
   Tab,
   TabList,
-  TabValue,
-  makeStyles,
+  type TabValue,
   tokens,
 } from '@fluentui/react-components';
 import { ClipboardRegular } from '@fluentui/react-icons';
+import { type KeyboardEvent, useCallback, useState } from 'react';
 
-import AppText from '@shrugman/text';
+import AppText from '@/text';
 
 const useStyles = makeStyles({
   main: {
@@ -59,7 +58,7 @@ export default function HomePage() {
 
   const setClipboard = useCallback(
     () => navigator.clipboard.writeText(shrugMan),
-    [shrugMan]
+    [shrugMan],
   );
 
   const handleCardActionClicked = useCallback(() => {
@@ -72,7 +71,7 @@ export default function HomePage() {
         handleCardActionClicked();
       }
     },
-    [handleCardActionClicked]
+    [handleCardActionClicked],
   );
 
   return (
