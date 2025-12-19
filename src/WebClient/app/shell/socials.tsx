@@ -1,11 +1,16 @@
 'use client';
 
-import { JSX, useCallback } from 'react';
+import { Button, makeStyles, Tooltip } from '@fluentui/react-components';
+import { type JSX, useCallback } from 'react';
+import { GitHubIcon } from '@/assets';
+import ShellText from '@/shell/text';
 
-import { Button, Image, Tooltip } from '@fluentui/react-components';
-
-import ShellText from '@shrugman/shell/text';
-import { useColorMode } from '@shrugman/theme';
+const useStyles = makeStyles({
+  svg: {
+    width: '20px',
+    height: '20px',
+  },
+});
 
 interface Social {
   text: string;
@@ -14,24 +19,17 @@ interface Social {
 }
 
 export default function SocialButtons() {
-  const { isDark } = useColorMode();
+  const styles = useStyles();
 
   const getSocials = useCallback((): Social[] => {
     return [
       {
         text: ShellText.footer.socials.github,
         link: 'https://github.com/victorfrye/shrugman',
-        image: (
-          <Image
-            src={isDark ? '/assets/github.svg' : '/assets/github_dark.svg'}
-            alt={ShellText.footer.socials.github}
-            height={20}
-            width={20}
-          />
-        ),
+        image: <GitHubIcon className={styles.svg} />,
       },
     ];
-  }, [isDark]);
+  }, [styles]);
 
   const renderButtons = (): JSX.Element[] => {
     return getSocials().map((social) => (

@@ -2,16 +2,16 @@ name: Terraform CI/CD
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
     paths:
-      - 'infra/**'
-      - '.github/workflows/terraform.yml'
+      - "infra/**"
+      - ".github/workflows/terraform.yml"
   pull_request:
     types: [opened, synchronize, reopened]
-    branches: ['main']
+    branches: ["main"]
     paths:
-      - 'infra/**'
-      - '.github/workflows/terraform.yml'
+      - "infra/**"
+      - ".github/workflows/terraform.yml"
 
 permissions:
   contents: read
@@ -39,7 +39,7 @@ jobs:
       cancel-in-progress: false
 
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v5
 
       - name: Set up Terraform
@@ -78,7 +78,7 @@ jobs:
           fi
 
       - name: Publish plan
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: tfplan-${{ github.run_id }}
           path: infra/tfplan
@@ -87,7 +87,7 @@ jobs:
         id: build-summary
         run: |
           TF_PLAN=$(terraform -chdir=infra show -no-color tfplan)
-          
+
           delimiter="$(openssl rand -hex 8)"
           echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
           echo "## Terraform Plan" >> $GITHUB_OUTPUT
@@ -103,10 +103,10 @@ jobs:
         env:
           SUMMARY: ${{ steps.build-summary.outputs.summary }}
         run: echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
-        
+
       - name: Push summary to PR
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
           SUMMARY: "${{ steps.build-summary.outputs.summary }}"
         with:
@@ -132,7 +132,7 @@ jobs:
       cancel-in-progress: false
 
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v5
 
       - name: Set up Terraform
@@ -151,7 +151,7 @@ jobs:
         run: terraform -chdir=infra init -input=false
 
       - name: Download plan
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: tfplan-${{ github.run_id }}
           path: infra

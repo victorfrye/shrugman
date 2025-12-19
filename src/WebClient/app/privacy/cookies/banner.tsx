@@ -1,9 +1,9 @@
 'use client';
 
-import CookieConsentDialog from '@shrugman/privacy/cookies/consent-dialog';
-import CookieFab from '@shrugman/privacy/cookies/fab';
-import CookieManagerDialog from '@shrugman/privacy/cookies/manager-dialog';
-import useCookieBanner from '@shrugman/privacy/cookies/use-cookie-banner';
+import CookieConsentDialog from '@/privacy/cookies/consent-dialog';
+import CookieFab from '@/privacy/cookies/fab';
+import CookieManagerDialog from '@/privacy/cookies/manager-dialog';
+import useCookieBanner from '@/privacy/cookies/use-cookie-banner';
 
 export default function CookieBanner() {
   const {
