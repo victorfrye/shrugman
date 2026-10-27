@@ -18,6 +18,11 @@ updates:
     schedule:
       interval: 'quarterly'
     labels: ['📦 Issue-Dependencies', '🌐 Area-WebApp']
+    ignore:
+      - dependency-name: '@types/node'
+        versions: ['>=26']
+      - dependency-name: 'typescript'
+        versions: ['>=7']
 
   # Maintain dependencies for Terraform
   - package-ecosystem: 'terraform'
@@ -25,8 +30,11 @@ updates:
     schedule:
       interval: 'quarterly'
     labels: ['📦 Issue-Dependencies', '🚧 Area-Infrastructure']
+    ignore:
+      - dependency-name: 'hashicorp/azurerm'
+        versions: ['>=5']
 
-    # Maintain dependencies for GitHub Actions
+  # Maintain dependencies for GitHub Actions
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
