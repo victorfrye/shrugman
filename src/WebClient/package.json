@@ -32,7 +32,7 @@
     "@types/react-dom": "^19.3.0",
     "babel-plugin-react-compiler": "^1.0.0",
     "globals": "^17.13.0",
-    "knip": "5.75.2",
+    "knip": "6.43.0",
     "serve": "^14.2.6",
     "typescript": "^5.9.3"
   },
