@@ -34,7 +34,7 @@
     "globals": "^17.13.0",
     "knip": "5.75.2",
     "serve": "^14.2.6",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "overrides": {
     "@babel/plugin-transform-runtime": "7.29.7",
